@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "CutBack",
+  "description": "Close tab groups for subject, automatically classified.",
+  "version": "1.0",
+  "author": "Lorenzo Stella",
+  "homepage_url": "http://lorenzostella.it/",
+  "icons" : { "19": "images/19px.png", "48": "images/48px.png" },
+  
+  "browser_action": {
+    "default_icon": {                    // optional
+      "19": "images/19px.png",           // optional
+      "38": "images/38px.png",           // optional
+      "48": "images/48px.png"            // optional
+    },
+    "default_title": "Cut a branch!",
+    "default_popup": "popup.html"    
+  },
+  
+  // "background": {
+  //  "scripts": ["background.js"]
+  // },
+  
+  "permissions": [
+    "tabs",
+    "history"   
+  ]
+}

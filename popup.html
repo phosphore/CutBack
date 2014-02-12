@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cut a branch</title>
+    <style>
+      body {
+        min-width: 230px;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+        text-rendering: optimizeLegibility;
+      }
+      
+      input[type=checkbox] {
+			visibility: hidden;
+	  }
+
+      img {
+        /* margin: 5px;
+           border: 2px solid black; */
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+      }
+      p {
+		  font-size: small;
+		  text-shadow: 1px 1px 1px whitesmoke;
+	  }
+	  
+	  table {
+		    font-size: small;
+			width: 100%;
+			max-width: 100%;
+			background-color: transparent;
+			border-collapse: collapse;
+			border-spacing: 0;
+			display: table;
+			border-collapse: separate;
+			/* border-spacing: 2px; */
+			border-color: gray;
+		}
+		
+		thead {
+			display: table-header-group;
+			vertical-align: middle;
+			border-color: inherit;
+		}
+		
+		tr {
+			display: table-row;
+			vertical-align: inherit;
+			border-color: inherit;
+		}
+		.table th, .table td {
+			padding: 2px;
+			line-height: 16px;
+			text-align: left;
+			vertical-align: top;
+			border-top: 1px solid #dddddd;
+			}
+			
+			
+		.squaredFour {
+				width: 20px;	
+				position: relative;
+			}
+
+			.squaredFour label {
+				margin-left: -20px;
+				cursor: pointer;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 0;
+				border-radius: 4px;
+
+				-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+				-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+				box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+				background: #fcfff4;
+
+				background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+			}
+
+			.squaredFour label:after {
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+				filter: alpha(opacity=0);
+				opacity: 0;
+				content: '';
+				position: absolute;
+				width: 9px;
+				height: 5px;
+				background: transparent;
+				top: 4px;
+				left: 4px;
+				border: 3px solid #333;
+				border-top: none;
+				border-right: none;
+
+				-webkit-transform: rotate(-45deg);
+				-moz-transform: rotate(-45deg);
+				-o-transform: rotate(-45deg);
+				-ms-transform: rotate(-45deg);
+				transform: rotate(-45deg);
+			}
+
+			.squaredFour label:hover::after {
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+				filter: alpha(opacity=30);
+				opacity: 0.5;
+			}
+
+			.squaredFour input[type=checkbox]:checked + label:after {
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+				filter: alpha(opacity=100);
+				opacity: 1;
+			}
+    </style>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+    <!--<script src="popup.js"></script>-->
+  </head>
+  <body>
+	  <p><img src="little.png"> Your branches: </p>
+	  <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th style="border-top-color: transparent;"><div class="squaredFour"><input type="checkbox" value="None" id="squaredFour" name="check" /><label for="squaredFour"></label></div></th>
+							  <th style="border-color: transparent;text-shadow: 1px 1px 1px whitesmoke;">Your problem</th>
+                           </tr>
+                          </thead>
+                          <tbody>
+							  
+                            <tr>
+                              <td style="border-color: transparent;"></td>
+                              <td>&#8250; First tab</td>
+                            </tr>
+                            
+                            <tr>
+                              <td style="border-color: transparent;"></td>
+                              <td>&#8250; Second tab</td>   
+                            </tr>
+                            
+                            <tr>
+                              <td style="border-color: transparent;"></td>
+                              <td>&#8250; Third tab</td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+  </body>
+</html>
+
