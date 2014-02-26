@@ -18,8 +18,8 @@
         /* margin: 5px;
            border: 2px solid black; */
         vertical-align: middle;
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
       }
       p {
 		  font-size: small;
@@ -49,6 +49,7 @@
 			display: table-row;
 			vertical-align: inherit;
 			border-color: inherit;
+			font-size: smaller;
 		}
 		.table th, .table td {
 			padding: 2px;
@@ -132,33 +133,19 @@
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
-    <!--<script src="popup.js"></script>-->
+    <script src="popup.js"></script>
+    <script src="js/lib/jquery.js"></script>
   </head>
   <body>
-	  <p><img src="little.png"> Your branches: </p>
+	  <p id="branches"><img src="little.png"> Your branches: </p>
 	  <table class="table table-hover">
                           <thead>
                             <tr>
                               <th style="border-top-color: transparent;"><div class="squaredFour"><input type="checkbox" value="None" id="squaredFour" name="check" /><label for="squaredFour"></label></div></th>
-							  <th style="border-color: transparent;text-shadow: 1px 1px 1px whitesmoke;">Your problem</th>
+							  <th style="border-color: transparent;text-shadow: 1px 1px 1px whitesmoke;">Keyword</th>
                            </tr>
                           </thead>
-                          <tbody>
-							  
-                            <tr>
-                              <td style="border-color: transparent;"></td>
-                              <td>&#8250; First tab</td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="border-color: transparent;"></td>
-                              <td>&#8250; Second tab</td>   
-                            </tr>
-                            
-                            <tr>
-                              <td style="border-color: transparent;"></td>
-                              <td>&#8250; Third tab</td>
-                            </tr>
+                          <tbody id="tb">
                             
                           </tbody>
                         </table>
