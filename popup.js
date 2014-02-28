@@ -1,5 +1,37 @@
- chrome.tabs.getAllInWindow(null, function(tabs) {
+chrome.tabs.getAllInWindow(null, function(tabs) {
     numTabs = tabs.length;
+    var analyzedText = new Array();
+    var analyze_web_text = function(corpus){
+			tfidfs = tfidf_corpus(prepare_docs(prepare_corpus(corpus)));
+			s = sortObj(tfidfs);
+			return s;
+		}
+    for(var i = 0; i < numTabs; i++)
+    {
+		chrome.tabs.sendRequest(tabs[i].id, {action: "getText"}, function(response) {
+			analyzedText.push(analyze_web_text(response.txt));
+		});
+	}
+	console.log(analyzedText);
+		//// Cerca corrispondenze
+			  //var nq = 0;
+			  //var tmp = 0;
+			  //var ending = 0;
+			  //for(var k=0;k<sortKeywords.length;k++)
+			  //{
+			    //tmp = freq(sortKeywords[k],sortKeywords2);
+			    //if(tmp>nq)
+			    //{
+					//nq = tmp;
+					//ending = k;
+				//}
+			  //}
+			  ////TODO aggiungere if, perché se non viene trovata nessuna corrispondenza tra i due testi, viene fuori 0. Ergo se è veramente 0 bisogna vedere se sono = le 2 o simili. O qualcosa del genere.
+			  //alert(sortKeywords[ending]);
+			//}
+	  
+	
+    
     lenText = '<img src="little.png"> Your branches, ' + 
               numTabs + ' tabs: ';
     document.getElementById('branches').innerHTML = lenText;
@@ -20,34 +52,3 @@
     }
     document.getElementById('tb').innerHTML = html;
     });
-
-
-//$(document).ready(function() {
-   //getTabCount();
-//});
-
-//function getTabCount()
-//{
-
-  //chrome.windows.getAll({"populate" : true}, function(windows)
-
-  //{
-	  //document.getElementById("branches").textContent = " Your "+windows.length+" branches: ";
-    ////for(var i = 0; i < windows.length; i++)
-    ////{
-      ////for(var j = 0; j < windows[i].tabs.length; j++)
-      ////{
-        ////original.push(new tabInfo(windows[i].tabs[j], j));
-        ////alert(original[original.length - 1].tab.title);
-        ////original[original.length - 1].tab.title = tab.title;
-        ////original[original.length - 1].tab.url = tab.url;
-        ////original[original.length - 1].tab.status = tab.status;
-        ////original[original.length - 1].count = 0;
-
-        ////localstorage.setitem["tab.title"];
-        ////localstorage.setitem["tab.url"];
-        ////localstorage.setitem["tab.status"];
-       ////}
-    ////}
-  //});
-

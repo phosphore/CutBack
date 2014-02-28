@@ -18,11 +18,20 @@
     "default_popup": "popup.html"    
   },
   
+  "content_scripts": [
+		{
+        "matches":["<all_urls>"],
+        "js": ["keywords.js"]
+		}
+    ],
+  
   // "background": {
   //  "scripts": ["background.js"]
   // },
   
   "permissions": [
+    "http://*/*",
+    "https://*/*",
     "tabs",
     "history"   
   ]

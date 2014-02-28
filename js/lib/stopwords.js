@@ -16,8 +16,8 @@ var removeStopWords = function(words) {
   jQuery.each(words, function(i, val) {
     val = jQuery.trim(val);
     if (
-      isIngredient(val)
-      && 
+      // isIngredient(val)
+      // && 
       !isStopWord(val) 
       ) {
       cleanWords.push(val);
@@ -596,6 +596,9 @@ var stopWords = ['all','inrandom','respect','breakfast',
   'looks',
   'low',
   'lower',
+  'login',
+  'logout',
+  'exit',
   'ltd',
   'm',
   'made',
